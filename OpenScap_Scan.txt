@@ -1,0 +1,49 @@
+
+
+
+Note: password less authentication to client
+
+Install the openscap-scanner package: -- Server
+-------------------------------------
+# yum install openscap-scanner
+# yum install scap-workbench #(GUI manage - # scap-workbench)
+# yum install openscap-utils
+# yum install scap-security-guide
+
+
+
+Open WorkBench - GUI
+--------------------
+# scap-workbench
+
+
+Install the openscap-utils package:  -- clent machine package
+-----------------------------------
+# yum install openscap-utils
+
+
+
+Get the information about the profile  (about SCAP Content)
+--------------------------------------
+# oscap info /usr/share/xml/scap/ssg/content/ssg-rhel8-xccdf.xml
+# oscap info /usr/share/xml/scap/ssg/content/ssg-rhel7-xccdf.xml
+
+
+
+Run CIS_WorkBench via command line
+----------------------------------
+CIS- SERVER RHEL8
+-----------------
+# oscap-ssh root@10.100.5.13 22 xccdf eval --report remote_report.html --profile cis /usr/share/xml/scap/ssg/content/ssg-rhel8-xccdf.xml
+
+CIS - RHEL7
+-----------
+# oscap-ssh root@10.100.5.12 22 xccdf eval --report rhel7_report.html --profile cis /usr/share/xml/scap/ssg/content/ssg-rhel7-xccdf.xml
+# working profile
+# oscap-ssh root@10.69.22.201 22 xccdf eval --report mengine_cis_report.html --profile xccdf_org.ssgproject.content_profile_cis_server_l1 /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+
+
+with sudo
+---------
+# oscap-ssh --sudo ansible@10.100.5.14 22 xccdf eval --report report_LAB-RH7-CIS-M-3.html --profile cis /usr/share/xml/scap/ssg/content/ssg-rhel7-xccdf.xml
+

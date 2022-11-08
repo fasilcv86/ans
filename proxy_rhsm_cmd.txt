@@ -1,0 +1,20 @@
+Proxy adding by command
+=======================
+
+
+Help:   
+# subscription-manager config -h
+
+List all
+# subscription-manager list --available --all
+
+adding
+------
+# subscription-manager config --server.proxy_hostname=192.168.1.1 --server.proxy_port=3128
+
+
+
+Remove proxy configure
+----------------------
+# subscription-manager config --remove=server.proxy_hostname
+# subscription-manager config --remove=server.proxy_port
